@@ -65,13 +65,17 @@ class StageBase:
 # ==== Individual Stages ====
 class Stage1(StageBase):
     def on_enter(self):
-        send_gma3_command("Go+ Sequence ")
-        send_gma3_command("GO+ Sequence ")
-        send_gma3_command("GO+ Sequence ")
+        send_gma3_command("Off Sequence 11")
+        send_gma3_command("Go+ Sequence 4")
+        send_gma3_command("Go+ Sequence 6")
+        send_gma3_command("Go+ Sequence 12")
 
     def on_start(self):
         send_osc("/action/40162")
+        send_gma3_command("Off Sequence 2")
+        send_gma3_command("Off Sequence 3")
         send_gma3_command("Off Sequence 4")
+        send_gma3_command("Off Sequence 6")
         send_gma3_command("Off Sequence 12")
         send_gma3_command("Go+ Sequence 7")
         send_gma3_command("Go+ Sequence 9")
@@ -81,25 +85,23 @@ class Stage1(StageBase):
         send_osc("/action/40168")
         send_gma3_command("Off Sequence 9")
         send_gma3_command("Go+ Sequence 3")
-        send_gma3_command("Go+ Sequence 12")
-        send_gma3_command("Go+ Sequence 5")
-        send_gma3_command("Go+ Sequence 8")
 
     def on_lose(self):
         send_osc("/action/40164")
         send_gma3_command("Off Sequence 9")
         send_gma3_command("Go+ Sequence 2")
-        send_gma3_command("Go+ Sequence 13")
 
 class Stage2(StageBase):
     def on_enter(self):
+        send_gma3_command("Off Sequence 11")
         send_gma3_command("Go+ Sequence 4")
-        send_gma3_command("GO+ Sequence 6")
-        send_gma3_command("GO+ Sequence 12")
+        send_gma3_command("Go+ Sequence 6")
+        send_gma3_command("Go+ Sequence 12")
 
     def on_start(self):
         send_osc("/action/40169")
         send_gma3_command("Off Sequence 4")
+        send_gma3_command("Off Sequence 6")
         send_gma3_command("Off Sequence 12")
         send_gma3_command("Go+ Sequence 7")
         send_gma3_command("Go+ Sequence 9")
@@ -109,7 +111,6 @@ class Stage2(StageBase):
         send_osc("/action/40165")
         send_gma3_command("Off Sequence 9")
         send_gma3_command("Go+ Sequence 3")
-        send_gma3_command("Go+ Sequence 12")
         send_gma3_command("Go+ Sequence 5")
         send_gma3_command("Go+ Sequence 8")
 
@@ -117,7 +118,6 @@ class Stage2(StageBase):
         send_osc("/action/40164")
         send_gma3_command("Off Sequence 9")
         send_gma3_command("Go+ Sequence 2")
-        send_gma3_command("Go+ Sequence 13")
 
 # ==== Stage and Pad Mapping ====
 PAD_TO_STAGE = {
